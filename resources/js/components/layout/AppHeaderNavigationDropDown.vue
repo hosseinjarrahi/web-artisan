@@ -1,0 +1,35 @@
+<template>
+
+    <v-container fluid class="ma-0 background-gradient">
+        <v-row justify="center">
+            <v-col>
+
+                <v-list color="rgba(255,255,255,0.5)">
+
+                    <v-list-item v-for="link in links">
+                        <v-list-item-icon>
+                            <v-icon>{{ link.icon }}</v-icon>
+                        </v-list-item-icon>
+                        <v-list-item-title>{{ link.title }}</v-list-item-title>
+                    </v-list-item>
+
+                </v-list>
+
+            </v-col>
+        </v-row>
+    </v-container>
+
+</template>
+
+<script>
+    export default {
+        name: "AppHeaderNavigationDropDown",
+        props:{
+            links:{default:[]}
+        }
+    }
+</script>
+
+<style scoped>
+
+</style>

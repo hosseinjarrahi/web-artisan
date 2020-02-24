@@ -18,16 +18,54 @@
                 </v-btn>
             </div>
 
-            <v-btn icon v-if="isMobile">
+            <v-btn icon v-if="isMobile" @click="clicked = !clicked">
                 <v-icon>mdi-menu</v-icon>
             </v-btn>
+
+            <template #extension v-if="!isMobile">
+                <app-header-navigation-links :links="navLinks"/>
+            </template>
         </v-toolbar>
+
+        <app-header-navigation-drop-down :links="navLinks" v-if="openTheMenu"/>
+
     </div>
 </template>
 
 <script>
+    import AppHeaderNavigationLinks from './AppHeaderNavigationLinks';
+    import AppHeaderNavigationDropDown from './AppHeaderNavigationDropDown';
+
     export default {
-        name: "AppHeaderNavigation"
+        name: "AppHeaderNavigation",
+        components: {
+            AppHeaderNavigationLinks,
+            AppHeaderNavigationDropDown
+        },
+        data() {
+            return {
+                links: [
+                    {icon:'mdi-home',to: '', title: 'خانه', show: true},
+                    {icon:'mdi-information',to: '', title: 'درباره ما', show: true},
+                    {icon:'mdi-transit-connection-variant',to: '', title: 'ارتباط با ما', show: true},
+                    {icon:'mdi-cache',to: '', title: 'تعرفه ها', show: true},
+                    {icon:'mdi-service',to: '', title: 'خدمات', show: true},
+                    {icon:'mdi-service',to: '', title: 'نمونه کارها', show: true},
+                    {icon:'mdi-sitemap',to: '', title: 'پیگیری پروژه', show: true}
+                ],
+                clicked: false
+            }
+        },
+        computed: {
+            navLinks() {
+                return this.links.filter(val => {
+                    return val.show;
+                });
+            },
+            openTheMenu() {
+                return this.isMobile && this.clicked;
+            }
+        }
     }
 </script>
 
