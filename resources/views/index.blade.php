@@ -7,6 +7,7 @@
     <meta name="csrf-token" content="{{ csrf_token()}} ">
     <link href="{{ asset('css/app.css') }}" rel="stylesheet">
     <link href="https://cdn.jsdelivr.net/npm/@mdi/font@4.x/css/materialdesignicons.min.css" rel="stylesheet">
+    <link rel="shortcut icon" type="image/jpg" href="{{ asset('img/favicon.jpg') }}"/>
 
 </head>
 <body>

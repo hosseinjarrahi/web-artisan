@@ -14,11 +14,11 @@
                 </v-btn>
 
                 <v-btn icon>
-                    <v-icon>mdi-heart</v-icon>
+                    <v-icon>mdi-account</v-icon>
                 </v-btn>
             </div>
 
-            <v-btn icon v-if="isMobile" @click="clicked = !clicked">
+            <v-btn icon v-if="isMobile && !scroll" @click="clicked = !clicked" v-scroll:#scroll-target="hideExtension">
                 <v-icon>mdi-menu</v-icon>
             </v-btn>
 
@@ -48,12 +48,13 @@
                     {icon:'mdi-home',to: '', title: 'خانه', show: true},
                     {icon:'mdi-information',to: '', title: 'درباره ما', show: true},
                     {icon:'mdi-transit-connection-variant',to: '', title: 'ارتباط با ما', show: true},
-                    {icon:'mdi-cache',to: '', title: 'تعرفه ها', show: true},
-                    {icon:'mdi-service',to: '', title: 'خدمات', show: true},
-                    {icon:'mdi-service',to: '', title: 'نمونه کارها', show: true},
-                    {icon:'mdi-sitemap',to: '', title: 'پیگیری پروژه', show: true}
+                    {icon:'mdi-currency-usd',to: '', title: 'تعرفه ها', show: true},
+                    {icon:'mdi-animation',to: '', title: 'خدمات', show: true},
+                    {icon:'mdi-sitemap',to: '', title: 'نمونه کارها', show: true},
+                    {icon:'mdi-file-document',to: '', title: 'پیگیری پروژه', show: true}
                 ],
-                clicked: false
+                clicked: false,
+                scroll: false,
             }
         },
         computed: {
@@ -65,6 +66,11 @@
             openTheMenu() {
                 return this.isMobile && this.clicked;
             }
+        },
+        methods:{
+            hideExtension(){
+                this.scroll = true;
+            }
         }
     }
 </script>
@@ -72,7 +78,7 @@
 <style scoped>
     .background-gradient {
         background: #00c6ff; /* fallback for old browsers */
-        background: -webkit-linear-gradient(to right, #00c6ff, #0072ff); /* Chrome 10-25, Safari 5.1-6 */
-        background: linear-gradient(to right, #00c6ff, #0072ff); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+        background: -webkit-linear-gradient(to right, #00c6ff, #0080ff); /* Chrome 10-25, Safari 5.1-6 */
+        background: linear-gradient(to right, #00c6ff, #0080ff); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
     }
 </style>

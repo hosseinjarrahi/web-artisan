@@ -6,7 +6,7 @@
 
                 <v-list color="rgba(255,255,255,0.5)">
 
-                    <v-list-item v-for="link in links">
+                    <v-list-item @click="" v-for="link in links">
                         <v-list-item-icon>
                             <v-icon>{{ link.icon }}</v-icon>
                         </v-list-item-icon>
