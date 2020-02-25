@@ -1,5 +1,5 @@
 <template>
-    <v-app>
+    <v-app class="font">
         <v-content>
             <app-header/>
             <router-view></router-view>
@@ -18,3 +18,18 @@
         }
     }
 </script>
+
+<style scoped>
+    @font-face {
+        font-family: samim;
+        src: url('/font/samim/Samim.eot');
+        src: url('/font/samim/Samim.eot#iefix') format('FontName-opentype'),
+        url('/font/samim/Samim.woff') format('woff'),
+        url('/font/samim/Samim.ttf') format('truetype');
+        font-weight: normal;
+        font-style: normal;
+    }
+    .font{
+        font-family: samim;
+    }
+</style>

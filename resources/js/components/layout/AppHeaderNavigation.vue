@@ -1,9 +1,9 @@
 <template>
     <div>
         <v-toolbar flat dark class="background-gradient">
-            <!--            <v-app-bar-nav-icon></v-app-bar-nav-icon>-->
-            <v-img src="/img/logo.png" alt="" max-width="50px"/>
-
+            <router-link to="/">
+                <v-img src="/img/logo.png" alt="" max-width="50px"/>
+            </router-link>
             <v-toolbar-title class="mx-2">وب آرتیسان</v-toolbar-title>
 
             <v-spacer></v-spacer>
@@ -13,7 +13,7 @@
                     <v-icon>mdi-magnify</v-icon>
                 </v-btn>
 
-                <v-btn icon>
+                <v-btn icon @click="open = !open">
                     <v-icon>mdi-account</v-icon>
                 </v-btn>
             </div>
@@ -28,33 +28,35 @@
         </v-toolbar>
 
         <app-header-navigation-drop-down :links="navLinks" v-if="openTheMenu"/>
-
+        <app-header-login-form/>
     </div>
 </template>
 
 <script>
     import AppHeaderNavigationLinks from './AppHeaderNavigationLinks';
     import AppHeaderNavigationDropDown from './AppHeaderNavigationDropDown';
+    import AppHeaderLoginForm from './AppHeaderLoginForm';
 
     export default {
         name: "AppHeaderNavigation",
         components: {
             AppHeaderNavigationLinks,
-            AppHeaderNavigationDropDown
+            AppHeaderNavigationDropDown,
+            AppHeaderLoginForm
         },
         data() {
             return {
                 links: [
-                    {icon:'mdi-home',to: '', title: 'خانه', show: true},
-                    {icon:'mdi-information',to: '', title: 'درباره ما', show: true},
-                    {icon:'mdi-transit-connection-variant',to: '', title: 'ارتباط با ما', show: true},
-                    {icon:'mdi-currency-usd',to: '', title: 'تعرفه ها', show: true},
-                    {icon:'mdi-animation',to: '', title: 'خدمات', show: true},
-                    {icon:'mdi-sitemap',to: '', title: 'نمونه کارها', show: true},
-                    {icon:'mdi-file-document',to: '', title: 'پیگیری پروژه', show: true}
+                    {icon: 'mdi-home', to: '', title: 'خانه', show: true},
+                    {icon: 'mdi-information', to: '', title: 'درباره ما', show: true},
+                    {icon: 'mdi-transit-connection-variant', to: '', title: 'ارتباط با ما', show: true},
+                    {icon: 'mdi-currency-usd', to: '', title: 'تعرفه ها', show: true},
+                    {icon: 'mdi-animation', to: '', title: 'خدمات', show: true},
+                    {icon: 'mdi-sitemap', to: '', title: 'نمونه کارها', show: true},
+                    {icon: 'mdi-file-document', to: '', title: 'پیگیری پروژه', show: true}
                 ],
                 clicked: false,
-                scroll: false,
+                scroll: false
             }
         },
         computed: {
@@ -67,8 +69,8 @@
                 return this.isMobile && this.clicked;
             }
         },
-        methods:{
-            hideExtension(){
+        methods: {
+            hideExtension() {
                 this.scroll = true;
             }
         }

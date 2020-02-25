@@ -33,7 +33,7 @@
 
 <script>
     export default {
-        name: "AppHomeContentUnderConstruction",
+        name: "AppHomeContentUnderConstructionTable",
         props:{
             sites:{ default:[]},
         },

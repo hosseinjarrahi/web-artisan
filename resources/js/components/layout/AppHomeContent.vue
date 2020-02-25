@@ -6,11 +6,13 @@
             <app-home-content-card title="امنیت بالا" body="نمنه" img="/svg/computing-cloud-download-svgrepo-com.svg"/>
         </v-row>
         <app-home-content-under-construction/>
+        <app-home-content-post-slider/>
     </v-container>
 </template>
 
 <script>
     import AppHomeContentCard from './AppHomeContentCard';
+    import AppHomeContentPostSlider from './AppHomeContentPostSlider';
     import AppHomeContentUnderConstruction from './AppHomeContentUnderConstruction';
 
     export default {
@@ -22,7 +24,8 @@
         },
         components: {
             AppHomeContentCard,
-            AppHomeContentUnderConstruction
+            AppHomeContentUnderConstruction,
+            AppHomeContentPostSlider
         }
     }
 </script>

@@ -6,16 +6,7 @@
                 <v-row justify="center">
 
                     <v-col cols="11" md="4">
-                        <v-avatar>
-                            <v-img src="/img/logo.png"/>
-                        </v-avatar>
-                        <h2 class="d-inline-block border">وب آرتیسان</h2>
-                        <p class="pa-2 text-justify">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Iusto minus officia quam, repudiandae sapiente
-                            voluptatem? Consequatur debitis dolore odit porro, sint tempora! Doloremque eaque enim labore natus nemo odio optio!</p>
-                    </v-col>
-
-                    <v-col cols="11" md="4">
-                        <h2>دسترسی ها</h2>
+                        <h2 class="title pa-3">دسترسی ها</h2>
                         <ul>
                             <li class="px-3 py-2">نمونه</li>
                             <li class="px-3 py-2">نمونه</li>
@@ -24,6 +15,19 @@
                         </ul>
                     </v-col>
 
+                    <v-col cols="11" md="4">
+                        <v-avatar>
+                            <v-img src="/img/logo.png"/>
+                        </v-avatar>
+<!--                        <h2 class="d-inline-block">وب آرتیسان</h2>-->
+                        <p class="pa-2 text-justify">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Iusto minus officia quam, repudiandae sapiente
+                            voluptatem? Consequatur debitis dolore odit porro, sint tempora! Doloremque eaque enim labore natus nemo odio optio!</p>
+                    </v-col>
+
+                    <v-col cols="11" md="4">
+                        <h2 class="title py-3">با ما همراه باشید</h2>
+
+                    </v-col>
 
                 </v-row>
             </v-container>
@@ -70,7 +74,17 @@
         box-shadow: 0px 3px 6px rgba(47, 53, 66, 0.5);
     }
 
+    .title{
+        width:auto;
+        display: inline-block;
+        border-radius: 10px;
+        border-bottom: 2px solid white;
+        transform: translateY(-3px);
+    }
+
     ul {
+        margin: 0;
+        padding: 10px 5px;
         list-style-type: none;
     }
 </style>
