@@ -2131,6 +2131,10 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
+//
+//
 
 
 
@@ -2140,6 +2144,13 @@ __webpack_require__.r(__webpack_exports__);
     AppHeaderNavigationLinks: _AppHeaderNavigationLinks__WEBPACK_IMPORTED_MODULE_0__["default"],
     AppHeaderNavigationDropDown: _AppHeaderNavigationDropDown__WEBPACK_IMPORTED_MODULE_1__["default"],
     AppHeaderLoginForm: _AppHeaderLoginForm__WEBPACK_IMPORTED_MODULE_2__["default"]
+  },
+  created: function created() {
+    var _this = this;
+
+    window.onscroll = function () {
+      _this.scroll = document.documentElement.scrollTop >= 100;
+    };
   },
   data: function data() {
     return {
@@ -2180,7 +2191,8 @@ __webpack_require__.r(__webpack_exports__);
         show: true
       }],
       clicked: false,
-      scroll: false
+      scroll: false,
+      openExtension: false
     };
   },
   computed: {
@@ -2191,13 +2203,12 @@ __webpack_require__.r(__webpack_exports__);
     },
     openTheMenu: function openTheMenu() {
       return this.isMobile && this.clicked;
+    },
+    openIt: function openIt() {
+      return !this.isMobile && (this.scroll && this.openExtension || !this.scroll);
     }
   },
-  methods: {
-    hideExtension: function hideExtension() {
-      this.scroll = true;
-    }
-  }
+  methods: {}
 });
 
 /***/ }),
@@ -2702,7 +2713,7 @@ exports = module.exports = __webpack_require__(/*! ../../../../node_modules/css-
 
 
 // module
-exports.push([module.i, "\n.background-gradient[data-v-6f659b70] {\n    background: #00c6ff; /* fallback for old browsers */ /* Chrome 10-25, Safari 5.1-6 */\n    background: linear-gradient(to right, #00c6ff, #0080ff); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */\n}\n", ""]);
+exports.push([module.i, "\n.background-gradient[data-v-6f659b70] {\n    background: #00c6ff; /* fallback for old browsers */ /* Chrome 10-25, Safari 5.1-6 */\n    background: linear-gradient(to right, #00c6ff, #0080ff); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */\n}\n.nav[data-v-6f659b70]{\n    position: fixed;\n    top: 0;\n    left: 0;\n    width:100%;\n    z-index:1;\n    opacity: 0.9;\n}\n.drop-down[data-v-6f659b70]{\n    position: fixed;\n    top: 55px;\n    left: 0;\n    width:100%;\n    z-index:1;\n    opacity: 0.9;\n}\n", ""]);
 
 // exports
 
@@ -21474,11 +21485,11 @@ var render = function() {
       _c(
         "v-toolbar",
         {
-          staticClass: "background-gradient",
-          attrs: { flat: "", dark: "" },
+          class: ["background-gradient", { nav: _vm.scroll }],
+          attrs: { flat: !_vm.scroll, dark: "" },
           scopedSlots: _vm._u(
             [
-              !_vm.isMobile
+              _vm.openIt
                 ? {
                     key: "extension",
                     fn: function() {
@@ -21545,19 +21556,26 @@ var render = function() {
               )
             : _vm._e(),
           _vm._v(" "),
-          _vm.isMobile && !_vm.scroll
+          !_vm.isMobile && _vm.scroll
             ? _c(
                 "v-btn",
                 {
-                  directives: [
-                    {
-                      name: "scroll",
-                      rawName: "v-scroll:#scroll-target",
-                      value: _vm.hideExtension,
-                      expression: "hideExtension",
-                      arg: "#scroll-target"
+                  attrs: { icon: "" },
+                  on: {
+                    click: function($event) {
+                      _vm.openExtension = !_vm.openExtension
                     }
-                  ],
+                  }
+                },
+                [_c("v-icon", [_vm._v("mdi-menu")])],
+                1
+              )
+            : _vm._e(),
+          _vm._v(" "),
+          _vm.isMobile
+            ? _c(
+                "v-btn",
+                {
                   attrs: { icon: "" },
                   on: {
                     click: function($event) {
@@ -21575,6 +21593,7 @@ var render = function() {
       _vm._v(" "),
       _vm.openTheMenu
         ? _c("app-header-navigation-drop-down", {
+            class: { "drop-down": _vm.scroll },
             attrs: { links: _vm.navLinks }
           })
         : _vm._e(),
