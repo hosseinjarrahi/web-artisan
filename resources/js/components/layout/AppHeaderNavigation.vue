@@ -4,7 +4,7 @@
             <router-link to="/">
                 <v-img src="/img/logo.png" alt="" max-width="50px"/>
             </router-link>
-            <v-toolbar-title class="mx-2">وب آرتیسان</v-toolbar-title>
+            <v-toolbar-title class="mx-2"><h1 style="font-size: 1.2rem;">وب آرتیسان</h1></v-toolbar-title>
 
             <v-spacer></v-spacer>
 

@@ -1,11 +1,11 @@
 <template>
-    <v-row justify="center" align="center" class="mt-12">
+    <v-row justify="center" align="center">
 
-        <v-col cols="11" md="3" class="top">
+        <v-col cols="11" md="4" class="top">
             <v-img src="/img/modern-web.png" alt="پروژه های در دست ساخت"/>
         </v-col>
 
-        <v-col cols="11" md="9">
+        <v-col cols="11" md="7">
             <app-home-content-under-construction-table :sites="sites"/>
         </v-col>
     </v-row>
@@ -24,7 +24,18 @@
                     {
                         name:'ایران باگت',
                         complete:60,
-                    }
+                        progressbarColor:'red',
+                    },
+                    {
+                        name:'ایران باگت',
+                        complete:60,
+                        progressbarColor:'blue',
+                    },
+                    {
+                        name:'ایران باگت',
+                        complete:60,
+                        progressbarColor:'purple',
+                    },
                 ]
             }
         }

@@ -13,7 +13,7 @@
                                 <v-list-item v-for="site in sites">
                                     <v-list-item-content class="align-end">
                                         <v-progress-linear
-                                                color="light-blue"
+                                                :color="site.progressbarColor"
                                                 height="30"
                                                 :value="site.complete"
                                                 striped

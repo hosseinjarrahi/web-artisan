@@ -2481,19 +2481,19 @@ __webpack_require__.r(__webpack_exports__);
     return {
       contents: [{
         shortDescription: 'توضیحات کوتاهی درباره مطلب',
-        title: 'عنوان آزمایشی',
+        title: 'چگونه برای سایت خو یک قالب حرفه ای طراحی کنیم؟',
         author: 'حسین جراحی',
         avatar: '/svg/responsive-svgrepo-com.svg',
         img: '/svg/responsive-svgrepo-com.svg'
       }, {
         shortDescription: 'توضیحات کوتاهی درباره مطلب',
-        title: 'عنوان آزمایشی',
+        title: 'دنیای بزرگ برنامه نویسی از کجا شروع شد؟',
         author: 'حسین جراحی',
         avatar: '/svg/responsive-svgrepo-com.svg',
         img: '/svg/responsive-svgrepo-com.svg'
       }, {
         shortDescription: 'توضیحات کوتاهی درباره مطلب',
-        title: 'عنوان آزمایشی',
+        title: 'چگونه و چرا؟',
         author: 'حسین جراحی',
         avatar: '/svg/responsive-svgrepo-com.svg',
         img: '/svg/responsive-svgrepo-com.svg'
@@ -2555,7 +2555,16 @@ __webpack_require__.r(__webpack_exports__);
     return {
       sites: [{
         name: 'ایران باگت',
-        complete: 60
+        complete: 60,
+        progressbarColor: 'red'
+      }, {
+        name: 'ایران باگت',
+        complete: 60,
+        progressbarColor: 'blue'
+      }, {
+        name: 'ایران باگت',
+        complete: 60,
+        progressbarColor: 'purple'
       }]
     };
   }
@@ -21500,7 +21509,9 @@ var render = function() {
           ),
           _vm._v(" "),
           _c("v-toolbar-title", { staticClass: "mx-2" }, [
-            _vm._v("وب آرتیسان")
+            _c("h1", { staticStyle: { "font-size": "1.2rem" } }, [
+              _vm._v("وب آرتیسان")
+            ])
           ]),
           _vm._v(" "),
           _c("v-spacer"),
@@ -21805,9 +21816,9 @@ var render = function() {
         1
       ),
       _vm._v(" "),
-      _c("app-home-content-under-construction"),
+      _c("app-home-content-post-slider", { staticClass: "mt-12" }),
       _vm._v(" "),
-      _c("app-home-content-post-slider")
+      _c("app-home-content-under-construction")
     ],
     1
   )
@@ -21988,7 +21999,7 @@ var render = function() {
               attrs: {
                 "prev-icon": "mdi-arrow-left-circle",
                 "next-icon": "mdi-arrow-right-circle",
-                "show-arrows": ""
+                "show-arrows": !_vm.isMobile
               }
             },
             _vm._l(_vm.contents, function(content, index) {
@@ -22032,11 +22043,11 @@ var render = function() {
   var _c = _vm._self._c || _h
   return _c(
     "v-row",
-    { staticClass: "mt-12", attrs: { justify: "center", align: "center" } },
+    { attrs: { justify: "center", align: "center" } },
     [
       _c(
         "v-col",
-        { staticClass: "top", attrs: { cols: "11", md: "3" } },
+        { staticClass: "top", attrs: { cols: "11", md: "4" } },
         [
           _c("v-img", {
             attrs: { src: "/img/modern-web.png", alt: "پروژه های در دست ساخت" }
@@ -22047,7 +22058,7 @@ var render = function() {
       _vm._v(" "),
       _c(
         "v-col",
-        { attrs: { cols: "11", md: "9" } },
+        { attrs: { cols: "11", md: "7" } },
         [
           _c("app-home-content-under-construction-table", {
             attrs: { sites: _vm.sites }
@@ -22125,7 +22136,7 @@ var render = function() {
                                           "v-progress-linear",
                                           {
                                             attrs: {
-                                              color: "light-blue",
+                                              color: site.progressbarColor,
                                               height: "30",
                                               value: site.complete,
                                               striped: ""

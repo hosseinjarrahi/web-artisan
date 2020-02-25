@@ -5,8 +5,8 @@
             <app-home-content-card title="واکنش گرا" body="نمنه" img="/svg/responsive-svgrepo-com.svg"/>
             <app-home-content-card title="امنیت بالا" body="نمنه" img="/svg/computing-cloud-download-svgrepo-com.svg"/>
         </v-row>
+        <app-home-content-post-slider class="mt-12"/>
         <app-home-content-under-construction/>
-        <app-home-content-post-slider/>
     </v-container>
 </template>
 

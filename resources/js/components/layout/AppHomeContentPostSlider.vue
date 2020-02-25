@@ -7,7 +7,7 @@
             <v-slide-group
                     prev-icon="mdi-arrow-left-circle"
                     next-icon="mdi-arrow-right-circle"
-                    show-arrows
+                    :show-arrows="!isMobile"
             >
                 <v-slide-item v-for="(content,index) in contents" :key="index">
                     <AppHomeContentPost :content="content"/>
@@ -30,19 +30,19 @@
                 contents: [
                     {
                         shortDescription: 'توضیحات کوتاهی درباره مطلب',
-                        title: 'عنوان آزمایشی',
+                        title: 'چگونه برای سایت خو یک قالب حرفه ای طراحی کنیم؟',
                         author: 'حسین جراحی',
                         avatar: '/svg/responsive-svgrepo-com.svg',
                         img: '/svg/responsive-svgrepo-com.svg'
                     }, {
                         shortDescription: 'توضیحات کوتاهی درباره مطلب',
-                        title: 'عنوان آزمایشی',
+                        title: 'دنیای بزرگ برنامه نویسی از کجا شروع شد؟',
                         author: 'حسین جراحی',
                         avatar: '/svg/responsive-svgrepo-com.svg',
                         img: '/svg/responsive-svgrepo-com.svg'
                     }, {
                         shortDescription: 'توضیحات کوتاهی درباره مطلب',
-                        title: 'عنوان آزمایشی',
+                        title: 'چگونه و چرا؟',
                         author: 'حسین جراحی',
                         avatar: '/svg/responsive-svgrepo-com.svg',
                         img: '/svg/responsive-svgrepo-com.svg'
