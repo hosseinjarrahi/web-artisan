@@ -5,7 +5,10 @@
                 <v-row>
                     <v-col cols="12">
                         <v-card>
-                            <v-card-title class="subheading font-weight-bold">پروژه های در دست ساخت</v-card-title>
+                            <v-card-title class="subheading font-weight-bold">
+                                <v-icon color="black">mdi-excavator</v-icon>
+                                <span>پروژه های در دست ساخت</span>
+                            </v-card-title>
 
                             <v-divider></v-divider>
 
@@ -17,7 +20,8 @@
                                                 height="30"
                                                 :value="site.complete"
                                                 striped
-                                        >{{ site.name }} / {{ site.complete | percentage }}</v-progress-linear>
+                                        >{{ site.name }} / {{ site.complete | percentage }}
+                                        </v-progress-linear>
                                     </v-list-item-content>
 
                                 </v-list-item>
@@ -34,16 +38,14 @@
 <script>
     export default {
         name: "AppHomeContentUnderConstructionTable",
-        props:{
-            sites:{ default:[]},
+        props: {
+            sites: {default: []},
         },
-        data(){
-            return {
-
-            }
+        data() {
+            return {}
         },
-        filters:{
-            percentage(val){
+        filters: {
+            percentage(val) {
                 return val + '%';
             }
         }

@@ -4,7 +4,9 @@ import AppHome from "../components/AppHome";
 Vue.use(VueRouter);
 
 const routes = [
-    { path: '/', component: AppHome }
+    { path: '/', component: AppHome },
+    // { path: '/posts', component: AppPosts },
+    // { path: '/post/:slug', component: AppPost },
 ]
 
 const router = new VueRouter({

@@ -8,10 +8,32 @@
 
             <v-spacer></v-spacer>
 
-            <div v-if="!isMobile">
-                <v-btn icon>
-                    <v-icon>mdi-magnify</v-icon>
-                </v-btn>
+            <div>
+
+                <v-menu offset-y :close-on-content-click="false">
+                    <template v-slot:activator="{ on }">
+                        <v-btn icon dark v-on="on">
+                            <v-icon>mdi-magnify</v-icon>
+                        </v-btn>
+                    </template>
+                    <v-list>
+                        <v-list-item>
+                            <v-list-item-title>
+                                <v-form>
+                                    <v-text-field label="جست و جو...">
+                                        <template #append>
+                                            <v-btn color="primary" icon>
+                                                <v-icon>mdi-magnify</v-icon>
+                                            </v-btn>
+                                        </template>
+                                    </v-text-field>
+                                </v-form>
+                            </v-list-item-title>
+                        </v-list-item>
+                    </v-list>
+                </v-menu>
+
+
 
                 <v-btn icon @click="open = !open">
                     <v-icon>mdi-account</v-icon>

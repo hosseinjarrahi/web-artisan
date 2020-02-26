@@ -1,7 +1,10 @@
 <template>
     <v-container fluid>
         <div class="text-center">
-            <h3 class="pa-3 mofid">مطالب مفید</h3>
+            <h3 class="pa-3 mofid">
+                <v-icon color="white">mdi-file-outline</v-icon>
+                <span>آخرین مقالات</span>
+            </h3>
         </div>
         <v-container fluid class="posts">
             <v-slide-group

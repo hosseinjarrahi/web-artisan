@@ -7,6 +7,7 @@
         </v-row>
         <app-home-content-post-slider class="mt-12"/>
         <app-home-content-under-construction/>
+        <app-home-content-samples/>
     </v-container>
 </template>
 
@@ -14,6 +15,7 @@
     import AppHomeContentCard from './AppHomeContentCard';
     import AppHomeContentPostSlider from './AppHomeContentPostSlider';
     import AppHomeContentUnderConstruction from './AppHomeContentUnderConstruction';
+    import AppHomeContentSamples from './AppHomeContentSamples';
 
     export default {
         name: "AppHomeContent",
@@ -25,7 +27,8 @@
         components: {
             AppHomeContentCard,
             AppHomeContentUnderConstruction,
-            AppHomeContentPostSlider
+            AppHomeContentPostSlider,
+            AppHomeContentSamples
         }
     }
 </script>
