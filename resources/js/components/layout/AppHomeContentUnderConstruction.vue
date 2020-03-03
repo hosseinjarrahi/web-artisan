@@ -4,7 +4,6 @@
         <v-col cols="11" md="4" class="top">
             <v-img src="/img/modern-web.png" alt="پروژه های در دست ساخت"/>
         </v-col>
-
         <v-col cols="11" md="7">
             <app-home-content-under-construction-table :sites="sites"/>
         </v-col>

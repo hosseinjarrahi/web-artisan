@@ -74,17 +74,17 @@
             window.onscroll = () => {
                 this.scroll = document.documentElement.scrollTop >= 100;
             }
+            window.EventBus.$on('closeDropDown',()=>{
+                this.clicked = false;
+            });
         },
         data() {
             return {
                 links: [
-                    {icon: 'mdi-home', to: '', title: 'خانه', show: true},
-                    {icon: 'mdi-information', to: '', title: 'درباره ما', show: true},
-                    {icon: 'mdi-transit-connection-variant', to: '', title: 'ارتباط با ما', show: true},
-                    {icon: 'mdi-currency-usd', to: '', title: 'تعرفه ها', show: true},
-                    {icon: 'mdi-animation', to: '', title: 'خدمات', show: true},
-                    {icon: 'mdi-sitemap', to: '', title: 'نمونه کارها', show: true},
-                    {icon: 'mdi-file-document', to: '', title: 'پیگیری پروژه', show: true}
+                    {icon: 'mdi-transit-connection-variant', to: '/contact-us', title: 'ارتباط با ما', show: true},
+                    {icon: 'mdi-currency-usd', to: '/tariffs', title: 'تعرفه ها', show: true},
+                    {icon: 'mdi-collaboration', to: '/collaboration', title: 'همکاری با ما', show: true},
+                    {icon: 'mdi-file-document', to: '/projects', title: 'پروژهای شما', show: true}
                 ],
                 clicked: false,
                 scroll: false,

@@ -19,7 +19,7 @@
     }
 </script>
 
-<style scoped>
+<style>
     @font-face {
         font-family: samim;
         src: url('/font/samim/Samim.eot');
@@ -32,4 +32,15 @@
     .font{
         font-family: samim;
     }
+
+    .v-application a{
+        text-decoration: none;
+        color: unset !important;
+    }
+
+    a,a:hover,a:active,a:visited{
+        text-decoration: none;
+        color: unset;
+    }
+
 </style>

@@ -8,6 +8,8 @@ Route::group(['middleware' => 'api', 'prefix' => 'auth'], function ($router) {
     Route::post('me', 'AuthController@me');
 });
 
+Route::resource('/sample','SampleController');
+
 Route::middleware('auth:api')->get('/user', function (Request $request) {
     return $request->user();
 });

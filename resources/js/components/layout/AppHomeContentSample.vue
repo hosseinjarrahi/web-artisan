@@ -1,5 +1,5 @@
 <template>
-    <v-card elevation="16" class="mx-auto my-12" max-width="400">
+    <v-card elevation="16" class="mx-auto my-3 hover" max-width="400">
         <v-img height="250" :src="sample.img"/>
 
         <v-card-title>{{ sample.title }}</v-card-title>
@@ -10,7 +10,7 @@
             </v-row>
 
             <div class="my-4 subtitle-1">
-                {{ sample.price + ' هزینه پیاده سازی ' }}
+                {{ sample.price + '  تومان هزینه پیاده سازی ' }}
             </div>
 
             <div>{{ sample.description }}</div>
@@ -41,5 +41,10 @@
 </script>
 
 <style scoped>
-
+    .hover{
+        transition: all 0.3s ease-out;
+    }
+    .hover:hover{
+        transform: translateY(-10px);
+    }
 </style>

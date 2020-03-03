@@ -1,5 +1,5 @@
 <template>
-    <v-container fluid class="pa-0 ma-0 svg-bg">
+    <v-container fluid :class="['pa-0','ma-0',{'svg-bg':!isMobile}]">
         <h2 class="text-center">
             <v-icon color="black">mdi-animation-outline</v-icon>
             <span>نمونه کار ها</span>

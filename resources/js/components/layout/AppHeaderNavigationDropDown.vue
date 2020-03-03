@@ -6,7 +6,7 @@
 
                 <v-list color="rgba(255,255,255,0.5)">
 
-                    <v-list-item @click="" v-for="(link,index) in links" :key="index">
+                    <v-list-item @click="clicked(link.to)" v-for="(link,index) in links" :key="index">
                         <v-list-item-icon>
                             <v-icon>{{ link.icon }}</v-icon>
                         </v-list-item-icon>
@@ -33,6 +33,13 @@
         name: "AppHeaderNavigationDropDown",
         props:{
             links:{default:[]}
+        },
+        methods:{
+            clicked(link){
+                this.$router.push(link);
+                window.EventBus.$emit('closeDropDown');
+                this.goToUp();
+            }
         }
     }
 </script>

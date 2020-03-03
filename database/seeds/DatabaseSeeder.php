@@ -1,5 +1,10 @@
 <?php
 
+use App\Option;
+use App\Plan;
+use App\Post;
+use App\Project;
+use App\Sample;
 use Illuminate\Database\Seeder;
 
 class DatabaseSeeder extends Seeder
@@ -11,6 +16,16 @@ class DatabaseSeeder extends Seeder
      */
     public function run()
     {
-        // $this->call(UsersTableSeeder::class);
+        Option::truncate();
+        Plan::truncate();
+        Post::truncate();
+        Project::truncate();
+        Sample::truncate();
+
+        factory(Option::class,5)->create();
+        factory(Plan::class,5)->create();
+        factory(Post::class,5)->create();
+        factory(Project::class,5)->create();
+        factory(Sample::class,5)->create();
     }
 }

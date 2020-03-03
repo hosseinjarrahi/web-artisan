@@ -13,7 +13,7 @@
                             <v-divider></v-divider>
 
                             <v-list dense>
-                                <v-list-item v-for="site in sites">
+                                <v-list-item v-for="(site,index) in sites" :key="index">
                                     <v-list-item-content class="align-end">
                                         <v-progress-linear
                                                 :color="site.progressbarColor"
