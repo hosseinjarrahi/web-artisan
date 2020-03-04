@@ -2140,53 +2140,18 @@ __webpack_require__.r(__webpack_exports__);
   },
   data: function data() {
     return {
-      tariffs: [{
-        title: "پلن فروشگاهی",
-        price: 3000000,
-        startColor: "red",
-        techs: ["Jquery", "Bootstrap", "Laravel", "Php7"],
-        items: [{
-          name: "سبد خرید",
-          value: "mdi-check"
-        }, {
-          name: "اسلایدر اختصاصی",
-          value: "mdi-check"
-        }, {
-          name: "فلان",
-          value: "mdi-check"
-        }]
-      }, {
-        title: "پلن شرکتی",
-        price: 3000000,
-        startColor: "gray",
-        techs: ["Jquery", "Bootstrap", "Laravel", "Php7"],
-        items: [{
-          name: "سبد خرید",
-          value: "mdi-check"
-        }, {
-          name: "اسلایدر اختصاصی",
-          value: "mdi-check"
-        }, {
-          name: "فلان",
-          value: "mdi-check"
-        }]
-      }, {
-        title: "پلن شخصی",
-        price: 3000000,
-        startColor: "yellow",
-        techs: ["Jquery", "Bootstrap", "Laravel", "Php7"],
-        items: [{
-          name: "سبد خرید",
-          value: "mdi-check"
-        }, {
-          name: "اسلایدر اختصاصی",
-          value: "mdi-check"
-        }, {
-          name: "فلان",
-          value: "mdi-check"
-        }]
-      }]
+      tariffs: []
     };
+  },
+  created: function created() {
+    var _this = this;
+
+    axios.get('/api/plan').then(function (res) {
+      _this.tariffs = res.data.data;
+      console.log(_this.tariffs);
+    })["catch"](function (err) {
+      console.log(err);
+    });
   }
 });
 
@@ -2538,14 +2503,14 @@ __webpack_require__.r(__webpack_exports__);
         title: 'ارتباط با ما',
         show: true
       }, {
-        icon: 'mdi-currency-usd',
-        to: '/tariffs',
-        title: 'تعرفه ها',
-        show: true
-      }, {
         icon: 'mdi-collaboration',
         to: '/collaboration',
         title: 'همکاری با ما',
+        show: true
+      }, {
+        icon: 'mdi-currency-usd',
+        to: '/tariffs',
+        title: 'تعرفه ها',
         show: true
       }, {
         icon: 'mdi-file-document',
@@ -2721,6 +2686,9 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
+//
 
 
 
@@ -2729,8 +2697,18 @@ __webpack_require__.r(__webpack_exports__);
   name: "AppHomeContent",
   data: function data() {
     return {
-      isActive: false
+      isActive: false,
+      options: []
     };
+  },
+  created: function created() {
+    var _this = this;
+
+    axios.get("/api/option").then(function (res) {
+      return _this.options = res.data.data;
+    })["catch"](function (err) {
+      return console.log(err);
+    });
   },
   components: {
     AppHomeContentCard: _AppHomeContentCard__WEBPACK_IMPORTED_MODULE_0__["default"],
@@ -2874,45 +2852,18 @@ __webpack_require__.r(__webpack_exports__);
   components: {
     AppHomeContentPost: _AppHomeContentPost__WEBPACK_IMPORTED_MODULE_0__["default"]
   },
+  created: function created() {
+    var _this = this;
+
+    axios.get('/api/post').then(function (res) {
+      _this.contents = res.data.data;
+    })["catch"](function (err) {
+      console.log(err);
+    });
+  },
   data: function data() {
     return {
-      contents: [{
-        shortDescription: 'توضیحات کوتاهی درباره مطلب',
-        title: 'چگونه برای سایت خو یک قالب حرفه ای طراحی کنیم؟',
-        author: 'حسین جراحی',
-        avatar: '/svg/responsive-svgrepo-com.svg',
-        img: '/svg/responsive-svgrepo-com.svg'
-      }, {
-        shortDescription: 'توضیحات کوتاهی درباره مطلب',
-        title: 'دنیای بزرگ برنامه نویسی از کجا شروع شد؟',
-        author: 'حسین جراحی',
-        avatar: '/svg/responsive-svgrepo-com.svg',
-        img: '/svg/responsive-svgrepo-com.svg'
-      }, {
-        shortDescription: 'توضیحات کوتاهی درباره مطلب',
-        title: 'چگونه و چرا؟',
-        author: 'حسین جراحی',
-        avatar: '/svg/responsive-svgrepo-com.svg',
-        img: '/svg/responsive-svgrepo-com.svg'
-      }, {
-        shortDescription: 'توضیحات کوتاهی درباره مطلب',
-        title: 'عنوان آزمایشی',
-        author: 'حسین جراحی',
-        avatar: '/svg/responsive-svgrepo-com.svg',
-        img: '/svg/responsive-svgrepo-com.svg'
-      }, {
-        shortDescription: 'توضیحات کوتاهی درباره مطلب',
-        title: 'عنوان آزمایشی',
-        author: 'حسین جراحی',
-        avatar: '/svg/responsive-svgrepo-com.svg',
-        img: '/svg/responsive-svgrepo-com.svg'
-      }, {
-        shortDescription: 'توضیحات کوتاهی درباره مطلب',
-        title: 'عنوان آزمایشی',
-        author: 'حسین جراحی',
-        avatar: '/svg/responsive-svgrepo-com.svg',
-        img: '/svg/responsive-svgrepo-com.svg'
-      }]
+      contents: []
     };
   }
 });
@@ -3002,27 +2953,18 @@ __webpack_require__.r(__webpack_exports__);
   components: {
     AppHomeContentSample: _AppHomeContentSample__WEBPACK_IMPORTED_MODULE_0__["default"]
   },
+  created: function created() {
+    var _this = this;
+
+    axios.get('/api/sample').then(function (res) {
+      _this.samples = res.data.data;
+    })["catch"](function (err) {
+      return console.log(res);
+    });
+  },
   data: function data() {
     return {
-      samples: [{
-        title: 'سایت ایران باگت',
-        img: '/svg/landing.svg',
-        techs: ['Jquery', 'Bootstrap', 'Laravel', 'Php7'],
-        price: 3000000,
-        description: 'سایتی که به همت بچه های تیم فلانی ساخته شده البته نیاز به توضیح نداره ولی عالیه'
-      }, {
-        title: 'سایت ایران باگت',
-        img: '/svg/landing.svg',
-        techs: ['Jquery', 'Bootstrap', 'Laravel', 'Php7'],
-        price: 3000000,
-        description: 'سایتی که به همت بچه های تیم فلانی ساخته شده البته نیاز به توضیح نداره ولی عالیه'
-      }, {
-        title: 'سایت ایران باگت',
-        img: '/svg/landing.svg',
-        techs: ['Jquery', 'Bootstrap', 'Laravel', 'Php7'],
-        price: 3000000,
-        description: 'سایتی که به همت بچه های تیم فلانی ساخته شده البته نیاز به توضیح نداره ولی عالیه'
-      }]
+      samples: []
     };
   }
 });
@@ -3050,7 +2992,6 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
-//
 
 /* harmony default export */ __webpack_exports__["default"] = ({
   name: "AppHomeContentUnderConstruction",
@@ -3059,20 +3000,17 @@ __webpack_require__.r(__webpack_exports__);
   },
   data: function data() {
     return {
-      sites: [{
-        name: 'ایران باگت',
-        complete: 60,
-        progressbarColor: 'red'
-      }, {
-        name: 'ایران باگت',
-        complete: 60,
-        progressbarColor: 'blue'
-      }, {
-        name: 'ایران باگت',
-        complete: 60,
-        progressbarColor: 'purple'
-      }]
+      sites: []
     };
+  },
+  created: function created() {
+    var _this = this;
+
+    axios.get("/api/project").then(function (res) {
+      return _this.sites = res.data.data;
+    })["catch"](function (err) {
+      return console.log(err);
+    });
   }
 });
 
@@ -3283,10 +3221,32 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
+//
+//
 /* harmony default export */ __webpack_exports__["default"] = ({
   props: {
     tariff: {
       "default": {}
+    }
+  },
+  filters: {
+    joda: function joda(value) {
+      String.prototype.trimRight = function (charlist) {
+        if (charlist === undefined) charlist = "s";
+        return this.replace(new RegExp("[" + charlist + "]+$"), "");
+      };
+
+      var res = value.toString().replace(/[\d]{3}/gi, function (x) {
+        return x + ",";
+      });
+      return res.trimRight(",");
+    }
+  },
+  computed: {
+    options: function options() {
+      return this.tariff.options;
     }
   }
 });
@@ -23373,31 +23333,12 @@ var render = function() {
       _c(
         "v-row",
         { attrs: { justify: "center" } },
-        [
-          _c("app-home-content-card", {
-            attrs: {
-              title: "طراحی چشم نواز",
-              body: "نمنه",
-              img: "/svg/monitor-tv-svgrepo-com.svg"
-            }
-          }),
-          _vm._v(" "),
-          _c("app-home-content-card", {
-            attrs: {
-              title: "واکنش گرا",
-              body: "نمنه",
-              img: "/svg/responsive-svgrepo-com.svg"
-            }
-          }),
-          _vm._v(" "),
-          _c("app-home-content-card", {
-            attrs: {
-              title: "امنیت بالا",
-              body: "نمنه",
-              img: "/svg/computing-cloud-download-svgrepo-com.svg"
-            }
+        _vm._l(_vm.options, function(option, index) {
+          return _c("app-home-content-card", {
+            key: index,
+            attrs: { title: option.title, body: option.body, img: option.pic }
           })
-        ],
+        }),
         1
       ),
       _vm._v(" "),
@@ -23536,9 +23477,17 @@ var render = function() {
       _c(
         "v-card-actions",
         [
-          _c("v-btn", { attrs: { text: "", color: "deep-purple accent-4" } }, [
-            _vm._v("\n            ادامه مطلب\n        ")
-          ])
+          _c(
+            "v-btn",
+            {
+              attrs: {
+                to: _vm.content.url,
+                text: "",
+                color: "deep-purple accent-4"
+              }
+            },
+            [_vm._v("\n            ادامه مطلب\n        ")]
+          )
         ],
         1
       )
@@ -23646,7 +23595,7 @@ var render = function() {
       attrs: { elevation: "16", "max-width": "400" }
     },
     [
-      _c("v-img", { attrs: { height: "250", src: _vm.sample.img } }),
+      _c("v-img", { attrs: { height: "250", src: _vm.sample.pic } }),
       _vm._v(" "),
       _c("v-card-title", [_vm._v(_vm._s(_vm.sample.title))]),
       _vm._v(" "),
@@ -23903,7 +23852,7 @@ var render = function() {
                                           },
                                           [
                                             _vm._v(
-                                              _vm._s(site.name) +
+                                              _vm._s(site.title) +
                                                 " / " +
                                                 _vm._s(
                                                   _vm._f("percentage")(
@@ -24123,7 +24072,7 @@ var render = function() {
                 _c("h3", [_vm._v(_vm._s(_vm.tariff.title))]),
                 _vm._v(" "),
                 _c("p", { staticClass: "subtitle-1" }, [
-                  _vm._v(_vm._s("شروع از " + _vm.tariff.price + " تومان "))
+                  _vm._v(_vm._s(_vm._f("joda")(_vm.tariff.price)))
                 ])
               ])
             ],
@@ -24143,7 +24092,7 @@ var render = function() {
                 { text: "ویژگی ها", value: "name" },
                 { text: "-", value: "value" }
               ],
-              items: _vm.tariff.items,
+              items: _vm.options,
               "disable-pagination": "",
               "disable-filtering": "",
               "disable-sort": "",
@@ -24152,10 +24101,10 @@ var render = function() {
             scopedSlots: _vm._u([
               {
                 key: "item.value",
-                fn: function(ref) {
-                  var item = ref.item
-                  return [_c("v-icon", [_vm._v(_vm._s(item.value))])]
-                }
+                fn: function() {
+                  return [_c("v-icon", [_vm._v("mdi-check")])]
+                },
+                proxy: true
               }
             ])
           })

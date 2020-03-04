@@ -11,6 +11,6 @@ $factory->define(Sample::class, function (Faker $faker) {
         'price' => random_int(5000,500000) ,
         'body' => $faker->realText(300) ,
         'techs' =>  ['php','laravel'],
-        'pic' => '/img/landing.svg',
+        'pic' => '/svg/landing.svg',
     ];
 });

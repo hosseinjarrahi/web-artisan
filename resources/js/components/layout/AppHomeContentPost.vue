@@ -17,7 +17,7 @@
         </v-card-text>
 
         <v-card-actions>
-            <v-btn text color="deep-purple accent-4">
+            <v-btn :to="content.url" text color="deep-purple accent-4">
                 ادامه مطلب
             </v-btn>
         </v-card-actions>

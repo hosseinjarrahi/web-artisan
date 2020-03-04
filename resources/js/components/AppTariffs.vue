@@ -16,42 +16,17 @@ export default {
   },
   data() {
     return {
-      tariffs: [
-        {
-          title: "پلن فروشگاهی",
-          price: 3000000,
-          startColor: "red",
-          techs: ["Jquery", "Bootstrap", "Laravel", "Php7"],
-          items: [
-            { name: "سبد خرید", value: "mdi-check" },
-            { name: "اسلایدر اختصاصی", value: "mdi-check" },
-            { name: "فلان", value: "mdi-check" }
-          ]
-        },
-        {
-          title: "پلن شرکتی",
-          price: 3000000,
-          startColor: "gray",
-          techs: ["Jquery", "Bootstrap", "Laravel", "Php7"],
-          items: [
-            { name: "سبد خرید", value: "mdi-check" },
-            { name: "اسلایدر اختصاصی", value: "mdi-check" },
-            { name: "فلان", value: "mdi-check" }
-          ]
-        },
-        {
-          title: "پلن شخصی",
-          price: 3000000,
-          startColor: "yellow",
-          techs: ["Jquery", "Bootstrap", "Laravel", "Php7"],
-          items: [
-            { name: "سبد خرید", value: "mdi-check" },
-            { name: "اسلایدر اختصاصی", value: "mdi-check" },
-            { name: "فلان", value: "mdi-check" }
-          ]
-        }
-      ]
+      tariffs: []
     };
+  },
+  created(){
+      axios.get('/api/plan')
+      .then((res) => {
+          this.tariffs = res.data.data;
+          console.log(this.tariffs);
+      }).catch((err) => {
+          console.log(err);
+      });
   }
 };
 </script>

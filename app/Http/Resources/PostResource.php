@@ -4,7 +4,7 @@ namespace App\Http\Resources;
 
 use Illuminate\Http\Resources\Json\JsonResource;
 
-class SampleResource extends JsonResource
+class PostResource extends JsonResource
 {
     /**
      * Transform the resource into an array.
@@ -16,10 +16,13 @@ class SampleResource extends JsonResource
     {
         return [
             'title' => $this->title,
-            'price' => $this->price,
-            'body' => $this->body,
-            'techs' => $this->techs,
+            'author' => $this->author,
+            'short_desc' => $this->short_desc,
+            'long_desc' => $this->long_desc,
             'pic' => $this->pic,
+            'meta_description' => $this->meta_description,
+            'keywords' => $this->keywords,
+            'url' => '/post/'.str_replace(' ','-',$this->title),
         ];
     }
 }

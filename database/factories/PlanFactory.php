@@ -10,7 +10,11 @@ $factory->define(Plan::class, function (Faker $faker) {
         'title' => $faker->realText(20),
         'price' => random_int(5000000,500000000),
         'techs' => ['php','jquery','bootstrap'],
-        'options' => ['سبد خرید','اسلایدر اختصاصی','پنل اختصاصی'],
+        'options' => [
+            ['name'=>'سبد خرید','value' => 'mdi-check'],
+            ['name'=>'اسلایدر اختصاصی','value' => 'mdi-check'],
+            ['name'=>'پنل اختصاصی','value' => 'mdi-check']
+        ],
         'color' => $faker->colorName,
     ];
 });

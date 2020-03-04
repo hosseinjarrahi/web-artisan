@@ -20,29 +20,14 @@
         components: {
             AppHomeContentSample
         },
+        created(){
+            axios.get('/api/sample')
+                .then(res => { this.samples = res.data.data })
+                .catch(err => console.log(res));
+        },
         data() {
             return {
-                samples: [
-                    {
-                        title: 'سایت ایران باگت',
-                        img: '/svg/landing.svg',
-                        techs: ['Jquery', 'Bootstrap', 'Laravel', 'Php7'],
-                        price: 3000000,
-                        description: 'سایتی که به همت بچه های تیم فلانی ساخته شده البته نیاز به توضیح نداره ولی عالیه',
-                    }, {
-                        title: 'سایت ایران باگت',
-                        img: '/svg/landing.svg',
-                        techs: ['Jquery', 'Bootstrap', 'Laravel', 'Php7'],
-                        price: 3000000,
-                        description: 'سایتی که به همت بچه های تیم فلانی ساخته شده البته نیاز به توضیح نداره ولی عالیه',
-                    }, {
-                        title: 'سایت ایران باگت',
-                        img: '/svg/landing.svg',
-                        techs: ['Jquery', 'Bootstrap', 'Laravel', 'Php7'],
-                        price: 3000000,
-                        description: 'سایتی که به همت بچه های تیم فلانی ساخته شده البته نیاز به توضیح نداره ولی عالیه',
-                    },
-                ]
+                samples:[]
             }
         }
     }

@@ -26,6 +26,6 @@ class DatabaseSeeder extends Seeder
         factory(Plan::class,5)->create();
         factory(Post::class,5)->create();
         factory(Project::class,5)->create();
-        factory(Sample::class,5)->create();
+        factory(Sample::class,3)->create();
     }
 }

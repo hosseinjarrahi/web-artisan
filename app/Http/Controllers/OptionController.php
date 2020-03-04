@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Http\Resources\OptionResource;
 use App\Option;
 use Illuminate\Http\Request;
 
@@ -14,7 +15,7 @@ class OptionController extends Controller
      */
     public function index()
     {
-        //
+        return OptionResource::collection(Option::all());
     }
 
     /**

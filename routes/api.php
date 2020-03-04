@@ -9,6 +9,10 @@ Route::group(['middleware' => 'api', 'prefix' => 'auth'], function ($router) {
 });
 
 Route::resource('/sample','SampleController');
+Route::resource('/option','OptionController');
+Route::resource('/post','PostController');
+Route::resource('/project','ProjectController');
+Route::resource('/plan','PlanController');
 
 Route::middleware('auth:api')->get('/user', function (Request $request) {
     return $request->user();

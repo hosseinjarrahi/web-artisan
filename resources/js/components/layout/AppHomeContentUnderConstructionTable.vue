@@ -20,7 +20,7 @@
                                                 height="30"
                                                 :value="site.complete"
                                                 striped
-                                        >{{ site.name }} / {{ site.complete | percentage }}
+                                        >{{ site.title }} / {{ site.complete | percentage }}
                                         </v-progress-linear>
                                     </v-list-item-content>
 

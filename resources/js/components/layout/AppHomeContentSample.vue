@@ -1,6 +1,6 @@
 <template>
     <v-card elevation="16" class="mx-auto my-3 hover" max-width="400">
-        <v-img height="250" :src="sample.img"/>
+        <v-img height="250" :src="sample.pic"/>
 
         <v-card-title>{{ sample.title }}</v-card-title>
 

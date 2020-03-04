@@ -8,6 +8,6 @@ class Plan extends Model
 {
     protected $casts = [
         'techs' => 'array',
-        'options' => 'array',
+        'options' => 'json',
     ];
 }

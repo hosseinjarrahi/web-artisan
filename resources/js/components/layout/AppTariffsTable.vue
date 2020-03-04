@@ -1,5 +1,9 @@
 <template>
-  <v-card :color="tariff.cardColor ? tariff.cardColor : 'white'" elevation="16" class="text-center my-3 hover">
+  <v-card
+    :color="tariff.cardColor ? tariff.cardColor : 'white'"
+    elevation="16"
+    class="text-center my-3 hover"
+  >
     <v-card-title>
       <v-row align="center" justify="center" class="mx-0">
         <v-col cols="12">
@@ -7,7 +11,7 @@
         </v-col>
         <v-col cols="12">
           <h3>{{ tariff.title }}</h3>
-          <p class="subtitle-1">{{ 'شروع از ' + tariff.price + ' تومان '}}</p>
+          <p class="subtitle-1">{{ tariff.price | joda }}</p>
         </v-col>
       </v-row>
     </v-card-title>
@@ -15,15 +19,16 @@
     <v-card-text>
       <v-data-table
         :headers="[{text:'ویژگی ها',value:'name'},{text:'-',value:'value'}]"
-        :items="tariff.items"
+        :items="options"
         disable-pagination
         disable-filtering
         disable-sort
         hide-default-footer
         class="elevation-1"
       >
-        <template #item.value="{ item }">
-            <v-icon>{{ item.value }}</v-icon>
+
+        <template #item.value>
+          <v-icon>mdi-check</v-icon>
         </template>
 
       </v-data-table>
@@ -40,9 +45,8 @@
     </v-card-text>
 
     <v-card-actions>
-        <v-btn color="primary" block>انتخاب پلن</v-btn>
+      <v-btn color="primary" block>انتخاب پلن</v-btn>
     </v-card-actions>
-
   </v-card>
 </template>
 
@@ -50,6 +54,25 @@
 export default {
   props: {
     tariff: { default: {} }
+  },
+  filters: {
+    joda(value) {
+      String.prototype.trimRight = function(charlist) {
+        if (charlist === undefined) charlist = "s";
+
+        return this.replace(new RegExp("[" + charlist + "]+$"), "");
+      };
+
+      var res = value.toString().replace(/[\d]{3}/gi, function(x) {
+        return x + ",";
+      });
+      return res.trimRight(",");
+    }
+  },
+  computed:{
+      options(){
+          return this.tariff.options;
+      }
   }
 };
 </script>

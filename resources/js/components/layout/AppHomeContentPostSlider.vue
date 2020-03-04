@@ -28,47 +28,17 @@
         components: {
             AppHomeContentPost
         },
+        created(){
+            axios.get('/api/post')
+            .then((res) => {
+                this.contents = res.data.data;
+            }).catch((err) => {
+                console.log(err);
+            });
+        },
         data() {
             return {
-                contents: [
-                    {
-                        shortDescription: 'توضیحات کوتاهی درباره مطلب',
-                        title: 'چگونه برای سایت خو یک قالب حرفه ای طراحی کنیم؟',
-                        author: 'حسین جراحی',
-                        avatar: '/svg/responsive-svgrepo-com.svg',
-                        img: '/svg/responsive-svgrepo-com.svg'
-                    }, {
-                        shortDescription: 'توضیحات کوتاهی درباره مطلب',
-                        title: 'دنیای بزرگ برنامه نویسی از کجا شروع شد؟',
-                        author: 'حسین جراحی',
-                        avatar: '/svg/responsive-svgrepo-com.svg',
-                        img: '/svg/responsive-svgrepo-com.svg'
-                    }, {
-                        shortDescription: 'توضیحات کوتاهی درباره مطلب',
-                        title: 'چگونه و چرا؟',
-                        author: 'حسین جراحی',
-                        avatar: '/svg/responsive-svgrepo-com.svg',
-                        img: '/svg/responsive-svgrepo-com.svg'
-                    }, {
-                        shortDescription: 'توضیحات کوتاهی درباره مطلب',
-                        title: 'عنوان آزمایشی',
-                        author: 'حسین جراحی',
-                        avatar: '/svg/responsive-svgrepo-com.svg',
-                        img: '/svg/responsive-svgrepo-com.svg'
-                    }, {
-                        shortDescription: 'توضیحات کوتاهی درباره مطلب',
-                        title: 'عنوان آزمایشی',
-                        author: 'حسین جراحی',
-                        avatar: '/svg/responsive-svgrepo-com.svg',
-                        img: '/svg/responsive-svgrepo-com.svg'
-                    }, {
-                        shortDescription: 'توضیحات کوتاهی درباره مطلب',
-                        title: 'عنوان آزمایشی',
-                        author: 'حسین جراحی',
-                        avatar: '/svg/responsive-svgrepo-com.svg',
-                        img: '/svg/responsive-svgrepo-com.svg'
-                    },
-                ]
+                contents: []
             }
         },
     }

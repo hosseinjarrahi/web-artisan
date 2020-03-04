@@ -82,8 +82,8 @@
             return {
                 links: [
                     {icon: 'mdi-transit-connection-variant', to: '/contact-us', title: 'ارتباط با ما', show: true},
-                    {icon: 'mdi-currency-usd', to: '/tariffs', title: 'تعرفه ها', show: true},
                     {icon: 'mdi-collaboration', to: '/collaboration', title: 'همکاری با ما', show: true},
+                    {icon: 'mdi-currency-usd', to: '/tariffs', title: 'تعرفه ها', show: true},
                     {icon: 'mdi-file-document', to: '/projects', title: 'پروژهای شما', show: true}
                 ],
                 clicked: false,

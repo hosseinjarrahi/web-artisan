@@ -15,7 +15,7 @@ class SampleController extends Controller
      */
     public function index()
     {
-        return new SampleResource(Sample::all());
+        return SampleResource::collection(Sample::all());
     }
 
     /**
